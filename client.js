@@ -1,10 +1,11 @@
 const net = require('net');
+const { IP, PORT } = require('./constants');
 
 //establishing Connection with server & communicate on connection
 const connect = function() {
-  const conn = net.createConnection({
-    host: '135.23.223.133',
-    port: 50542,
+  const conn = net.createConnection({ 
+    host: IP,
+    port: PORT,
   });
   //interpret data
   conn.setEncoding('utf-8');
@@ -20,11 +21,6 @@ const connect = function() {
     //   i = (i + 1) % arr.length;
     // }, 200);
   });
-
-
-
-
-
 
   // connectListner to the server for response...
   conn.on('data', (data) => {
